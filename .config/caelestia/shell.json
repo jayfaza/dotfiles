@@ -1,0 +1,194 @@
+{
+    "ai": {
+        "defaultOllamaModel": "phi3",
+        "enableCelestialMode": false,
+        "enableOllama": false,
+        "ollamaHistoryJson": "[{\"id\":\"chat_1783428654386\",\"title\":\"New Chat\",\"messages\":[{\"isUser\":true,\"text\":\"Привет\",\"isFinished\":true,\"thoughtText\":\"\"},{\"isUser\":false,\"text\":\"Generation cancelled\",\"isFinished\":true,\"thoughtText\":\"\"},{\"isUser\":true,\"text\":\"привет\",\"isFinished\":true,\"thoughtText\":\"\"},{\"isUser\":false,\"text\":\"Generation cancelled\",\"isFinished\":true,\"thoughtText\":\"\"},{\"isUser\":true,\"text\":\"привет\",\"isFinished\":true,\"thoughtText\":\"\"},{\"isUser\":false,\"text\":\"Generation cancelled\",\"isFinished\":true,\"thoughtText\":\"\"},{\"isUser\":true,\"text\":\"привет\",\"isFinished\":true,\"thoughtText\":\"\"},{\"isUser\":false,\"text\":\"Generation cancelled\",\"isFinished\":true,\"thoughtText\":\"\"}]}]"
+    },
+    "appearance": {
+        "islands": false,
+        "pitchBlack": false,
+        "transparency": {
+            "base": 0.8879780016447368,
+            "enabled": false,
+            "layers": 0.39499383223684215
+        }
+    },
+    "audio": {
+        "sounds": {
+            "cameraClick": false,
+            "chargingStarted": true,
+            "enabled": true,
+            "lock": true,
+            "notificationVolume": 1,
+            "sfxVolume": 0.1970174378453039
+        }
+    },
+    "background": {
+        "desktopClock": {
+            "background": {
+                "blur": true,
+                "enabled": true,
+                "opacity": 0.4749434621710526
+            },
+            "enabled": false,
+            "shadow": {
+                "blur": 1.2221011513157896,
+                "enabled": true,
+                "opacity": 1
+            }
+        },
+        "videoWallpaperPaused": false,
+        "videoWallpaperSoundEnabled": false,
+        "visualiser": {
+            "autoHide": false,
+            "enabled": false
+        },
+        "wallpaperRecolor": true,
+        "wallpaperRecolorStrength": 0.5209395559210527
+    },
+    "bar": {
+        "activeWindow": {
+            "compact": false,
+            "inverted": false,
+            "showOnHover": true
+        },
+        "clock": {
+            "showDate": true,
+            "showIcon": false
+        },
+        "entries": [
+            {
+                "enabled": true,
+                "id": "logo"
+            },
+            {
+                "enabled": true,
+                "id": "workspaces"
+            },
+            {
+                "enabled": true,
+                "id": "spacer"
+            },
+            {
+                "enabled": true,
+                "id": "activeWindow"
+            },
+            {
+                "enabled": true,
+                "id": "spacer"
+            },
+            {
+                "enabled": true,
+                "id": "tray"
+            },
+            {
+                "enabled": true,
+                "id": "github"
+            },
+            {
+                "enabled": true,
+                "id": "clock"
+            },
+            {
+                "enabled": true,
+                "id": "statusIcons"
+            },
+            {
+                "enabled": true,
+                "id": "power"
+            }
+        ],
+        "github": {
+            "background": false
+        },
+        "popouts": {
+            "activeWindow": true
+        },
+        "position": "left",
+        "showOnHover": false,
+        "status": {
+            "showAudio": true,
+            "showBattery": false,
+            "showBluetooth": false,
+            "showKbLayout": true,
+            "showLockStatus": false,
+            "showMicrophone": true,
+            "showNetwork": true,
+            "showWifi": false
+        },
+        "workspaces": {
+            "activeTrail": true,
+            "occupiedBg": false,
+            "showWindows": true,
+            "useIcon": true
+        }
+    },
+    "dashboard": {
+        "profilePicShape": 0,
+        "showHyprlandSplash": true,
+        "showPerformance": true,
+        "showTerminal": false,
+        "showWeather": false,
+        "syncMediaShapesToBeat": true,
+        "useMediaShapes": true
+    },
+    "general": {
+        "apps": {
+            "explorer": [
+                "nautilus",
+                "--new-window"
+            ],
+            "terminal": [
+                "kitty"
+            ]
+        },
+        "idle": {
+            "inhibitWhenAudio": false,
+            "lockBeforeSleep": false,
+            "timeouts": [
+            ]
+        }
+    },
+    "launcher": {
+        "dragThreshold": 50,
+        "maxShown": 5,
+        "showOnHover": true,
+        "useFuzzy": {
+            "schemes": true,
+            "wallpapers": true
+        },
+        "vimKeybinds": true
+    },
+    "lock": {
+        "profilePicShape": 12
+    },
+    "services": {
+        "arpcCaelestiaInfo": true,
+        "arpcEnabled": true,
+        "arpcSteamAutoDetect": true,
+        "pipPaused": false,
+        "smartScheme": true
+    },
+    "shimeji": {
+        "autoHide": true,
+        "count": 9,
+        "enabled": false
+    },
+    "sidebar": {
+        "enabled": true
+    },
+    "utilities": {
+        "toasts": {
+            "audioInputChanged": true,
+            "audioOutputChanged": true,
+            "capsLockChanged": false,
+            "chargingChanged": false,
+            "dndChanged": false,
+            "gameModeChanged": false,
+            "kbLayoutChanged": false,
+            "numLockChanged": false,
+            "transparency": false
+        }
+    }
+}

@@ -1,0 +1,6 @@
+workspace_layout default
+smart_gaps on
+gaps inner 6
+gaps outer 20 
+default_border pixel 2
+

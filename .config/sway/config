@@ -1,0 +1,10 @@
+output HDMI-A-1 mode 1920x1080@239.999Hz
+
+include /home/jayfaza/.config/sway/execs.conf
+include /home/jayfaza/.config/sway/input.conf
+include /home/jayfaza/.config/sway/settings.conf
+include /home/jayfaza/.config/sway/binds.conf
+
+
+
+include /etc/sway/config.d/*

@@ -1,0 +1,233 @@
+mod_key = "super"
+focus_follows_mouse = true
+autostart = [
+    "swayosd-server --top-margin 0.95 --style ~/.config/swayosd/style.css",
+    "waybar",
+    "mako",
+]
+
+[env]
+QT_QPA_PLATFORMTHEME = "qt6ct"
+
+[input.keyboard]
+layout = "us,ru"
+options = "grp:caps_toggle"
+repeat_rate = 30
+repeat_delay = 200
+
+[input.trackpad]
+tap_to_click = true
+natural_scroll = false
+tap_and_drag = true
+accel_speed = 0.0
+accel_profile = "flat"
+click_method = "clickfinger"
+
+[input.mouse]
+accel_speed = 0.0
+accel_profile = "flat"
+
+[cursor]
+theme = "elementary"
+inactive_opacity = 0.85
+
+[navigation]
+trackpad_speed = 1.5
+mouse_speed = 1.0
+
+[zoom]
+reset_on_new_window = false
+
+[snap]
+gap = 10.0
+distance = 20.0
+
+[decorations]
+bg_color = "#faf4ed"
+fg_color = "#575279"
+corner_radius = 10
+
+[output.outline]
+color = "#faf4ed"
+
+[background]
+type = "shader"
+path = "/home/jayfaza/.config/driftwm/wallpapers/boho_dawn.glsl"
+cache_shader = true
+
+[keybindings]
+"mod+shift+n" = "spawn ~/.config/driftwm/scripts/lock.sh"
+"mod+shift+j" = "nudge-window down"
+"mod+k" = "center-nearest up"
+XF86AudioLowerVolume = "spawn swayosd-client --output-volume lower"
+"mod+m" = "fit-window-snapped"
+"mod+shift+h" = "nudge-window left"
+"mod+0" = "zoom-reset"
+XF86MonBrightnessUp = "spawn swayosd-client --brightness raise"
+"mod+d" = "exec fuzzel"
+"mod+shift+e" = "quit"
+XF86AudioMute = "spawn swayosd-client --output-volume mute-toggle"
+"mod+return" = "exec kitty"
+"mod+shift+k" = "nudge-window up"
+"alt+tab" = "cycle-windows backward"
+XF86MonBrightnessDown = "spawn swayosd-client --brightness lower"
+"mod+h" = "center-nearest left"
+"ctrl+tab" = "cycle-windows forward"
+"mod+shift+f" = "fit-window"
+"mod+q" = "close-window"
+XF86Search = "exec ~/.config/driftwm/scripts/spotlight.sh"
+"mod+a" = "home-toggle"
+"mod+equal" = "zoom-in"
+"mod+shift+l" = "nudge-window right"
+"mod+shift+return" = "exec ptyxis -s"
+XF86LaunchA = "home-toggle"
+"mod+j" = "center-nearest down"
+"mod+minus" = "zoom-out"
+XF86AudioRaiseVolume = "spawn swayosd-client --output-volume raise"
+"mod+shift+s" = 'spawn grim -g "$(slurp -d)" - | tee ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H%M%S).png | wl-copy'
+"mod+l" = "center-nearest right"
+
+[[window_rules]]
+app_id = "drift-*"
+widget = true
+decoration = "minimal"
+
+[[window_rules]]
+app_id = "drift-clock"
+position = [
+    -79,
+    195,
+]
+size = [
+    311,
+    136,
+]
+
+[[window_rules]]
+app_id = "drift-stats"
+position = [
+    -79,
+    -1,
+]
+size = [
+    311,
+    236,
+]
+
+[[window_rules]]
+app_id = "drift-canvas"
+position = [
+    -114,
+    -177,
+]
+size = [
+    241,
+    96,
+]
+
+[[window_rules]]
+app_id = "drift-layout"
+position = [
+    51,
+    -177,
+]
+size = [
+    70,
+    96,
+]
+
+[[window_rules]]
+app_id = "drift-calendar"
+position = [
+    190,
+    -1,
+]
+size = [
+    207,
+    236,
+]
+
+[[window_rules]]
+app_id = "drift-weather"
+position = [
+    190,
+    195,
+]
+size = [
+    207,
+    136,
+]
+
+[[window_rules]]
+app_id = "drift-notif"
+position = [
+    195,
+    -177,
+]
+size = [
+    202,
+    96,
+]
+
+[[window_rules]]
+app_id = "drift-power"
+position = [
+    276,
+    -247,
+]
+size = [
+    35,
+    25,
+]
+
+[[window_rules]]
+app_id = "drift-power-menu"
+position = [
+    276,
+    -361,
+]
+decoration = "server"
+
+[[window_rules]]
+app_id = "waybar"
+position = [
+    -269,
+    19,
+]
+widget = true
+
+[[window_rules]]
+app_id = "waybar"
+position = [
+    132,
+    -247,
+]
+widget = true
+
+[[window_rules]]
+title = "winit window"
+widget = true
+
+[[window_rules]]
+app_id = "com.system76.CosmicSettings"
+size = [
+    500,
+    725,
+]
+
+[[window_rules]]
+app_id = "org.telegram.desktop"
+decoration = "server"
+
+[[window_rules]]
+app_id = "zen"
+title = "Picture-in-Picture"
+position = [
+    540,
+    -350,
+]
+size = [
+    570,
+    320,
+]
+decoration = "none"
