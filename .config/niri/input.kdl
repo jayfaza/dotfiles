@@ -1,0 +1,35 @@
+input {
+    keyboard {
+        xkb {
+            layout "us,ru"
+            options "grp:caps_toggle"
+            model ""
+            rules ""
+
+        }
+        repeat-rate 35
+        repeat-delay 250
+    }
+
+    touchpad {
+        tap
+        drag true 
+        natural-scroll
+        accel-speed 0
+        scroll-factor 0.3
+        accel-profile "flat"
+        scroll-method "two-finger"
+        click-method "clickfinger"
+        dwt
+        left-handed
+    }
+
+    mouse {
+    }
+
+    trackpoint {
+        accel-speed 0
+        accel-profile "flat"
+    }
+
+}

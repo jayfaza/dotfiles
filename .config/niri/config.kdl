@@ -1,0 +1,31 @@
+include "env.kdl"
+include "execs.kdl"
+include "input.kdl"
+include "monitors.kdl"
+include "misc.kdl"
+include "layout.kdl"
+include "rules.kdl"
+include "binds.kdl"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

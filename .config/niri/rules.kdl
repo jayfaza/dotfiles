@@ -1,0 +1,49 @@
+window-rule {
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    default-column-width {}
+}
+
+window-rule {
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    match app-id=r#"^org\.gnome\.World\.Secrets$"#
+
+    block-out-from "screen-capture"
+
+}
+
+window-rule {
+  match app-id="firefox"
+
+
+  open-maximized true
+
+}
+
+window-rule {
+  match title="wifitui"
+
+  open-floating true
+}
+
+window-rule {
+  geometry-corner-radius 12
+  clip-to-geometry true
+}
+
+window-rule {
+  match app-id="Happ"
+  
+  max-width 700
+  max-height 700
+  min-width 500
+  min-height 500
+
+  open-floating true
+  open-maximized false
+
+}

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+pkill waybar
+pkill mako
+mako &
+waybar &
