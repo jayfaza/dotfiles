@@ -25,11 +25,9 @@
 
 ## Insallation
 
-## Here is two options to install dotfiles:
-
 <details><summary> <b>Installation script:</b></summary>
 
-requirments:
+### requirments:
   -  ```git python```
   -  Installer will install other requirments, these need to run installer.
   
