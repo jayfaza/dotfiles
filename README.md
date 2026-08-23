@@ -41,6 +41,9 @@
 
 <details><summary> <b>Manual:</b></summary>
 
+### Requirements:
+  - ``` which adw-gtk-theme swaybg nvim nvim nwg-look fuzzel lsd stow npm pipewire wireplumber rustup niri kitty nautilus firefox waybar mako fish xdg-desktop-portal xdg-desktop-portal-gnome xdg-desktop-portal-gtk gnome-keyring git ```
+
 ```
   cd ~
   git clone https://github.com/jayfaza/dotfiles.git
@@ -48,6 +51,9 @@
   rm -rf ~/.config/*
   stow .
 ```
+
+(First note: There in ~/.config directory will be next folders: grub xdg tlp. If you want to, you can install them to the /etc direcotry)
+(Second note: dotfiles installer does it by default, so it is up to you.)
 
 </details>
 
