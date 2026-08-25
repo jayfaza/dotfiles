@@ -9,9 +9,9 @@
         "islands": false,
         "pitchBlack": false,
         "transparency": {
-            "base": 0.8879780016447368,
-            "enabled": false,
-            "layers": 0.39499383223684215
+            "base": 1,
+            "enabled": true,
+            "layers": 0.8039473684210526
         }
     },
     "audio": {
@@ -44,8 +44,8 @@
             "autoHide": false,
             "enabled": false
         },
-        "wallpaperRecolor": true,
-        "wallpaperRecolorStrength": 0.5209395559210527
+        "wallpaperRecolor": false,
+        "wallpaperRecolorStrength": 0.4209395559210527
     },
     "bar": {
         "activeWindow": {
@@ -57,70 +57,56 @@
             "showDate": true,
             "showIcon": false
         },
-        "entries": [
-            {
-                "enabled": true,
-                "id": "logo"
-            },
-            {
-                "enabled": true,
-                "id": "workspaces"
-            },
-            {
-                "enabled": true,
-                "id": "spacer"
-            },
-            {
-                "enabled": true,
-                "id": "activeWindow"
-            },
-            {
-                "enabled": true,
-                "id": "spacer"
-            },
-            {
-                "enabled": true,
-                "id": "tray"
-            },
-            {
-                "enabled": true,
-                "id": "github"
-            },
-            {
-                "enabled": true,
-                "id": "clock"
-            },
-            {
-                "enabled": true,
-                "id": "statusIcons"
-            },
-            {
-                "enabled": true,
-                "id": "power"
-            }
-        ],
+        "entries": {
+            "center": [
+                {
+                    "enabled": true,
+                    "id": "activeWindow"
+                }
+            ],
+            "end": [
+                {
+                    "enabled": true,
+                    "id": "tray"
+                },
+                {
+                    "enabled": true,
+                    "id": "clock"
+                },
+                {
+                    "enabled": true,
+                    "id": "statusIcons"
+                },
+                {
+                    "enabled": true,
+                    "id": "power"
+                }
+            ],
+            "start": [
+                {
+                    "enabled": true,
+                    "id": "logo"
+                },
+                {
+                    "enabled": true,
+                    "id": "workspaces"
+                }
+            ]
+        },
         "github": {
             "background": false
         },
+        "persistent": true,
         "popouts": {
             "activeWindow": true
         },
         "position": "left",
         "showOnHover": false,
-        "status": {
-            "showAudio": true,
-            "showBattery": false,
-            "showBluetooth": false,
-            "showKbLayout": true,
-            "showLockStatus": false,
-            "showMicrophone": true,
-            "showNetwork": true,
-            "showWifi": false
-        },
         "workspaces": {
             "activeTrail": true,
             "occupiedBg": false,
             "showWindows": true,
+            "showWindowsOnSpecialWorkspaces": true,
             "useIcon": true
         }
     },
@@ -136,8 +122,7 @@
     "general": {
         "apps": {
             "explorer": [
-                "nautilus",
-                "--new-window"
+                "/usr/lib/firefox/firefox"
             ],
             "terminal": [
                 "kitty"
@@ -164,9 +149,10 @@
         "profilePicShape": 12
     },
     "services": {
-        "arpcCaelestiaInfo": true,
-        "arpcEnabled": true,
-        "arpcSteamAutoDetect": true,
+        "arpcCaelestiaInfo": false,
+        "arpcEnabled": false,
+        "arpcSteamAutoDetect": false,
+        "gpuType": "",
         "pipPaused": false,
         "smartScheme": true,
         "useFahrenheit": false
@@ -189,7 +175,7 @@
             "gameModeChanged": false,
             "kbLayoutChanged": false,
             "numLockChanged": false,
-            "transparency": false
+            "transparency": true
         }
     }
 }
