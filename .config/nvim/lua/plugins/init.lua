@@ -1,23 +1,23 @@
 return {
 	{
 		"stevearc/conform.nvim",
-		event = "BufWritePre", -- uncomment for format on save
+		event = "BufWritePre",
+		lazy = "VeryLazy",
 		opts = require("configs.conform"),
 	},
 
-	-- These are some examples, uncomment them if you want to see them work!
 	{
 		"neovim/nvim-lspconfig",
+
 		config = function()
 			require("configs.lspconfig")
 		end,
 	},
 
-	-- test new blink
-	{ import = "nvchad.blink.lazyspec" },
-
 	{
 		"nvim-treesitter/nvim-treesitter",
+		lazy = "Lazy",
+
 		opts = {
 			ensure_installed = {
 				"vim",
@@ -91,39 +91,46 @@ return {
 	},
 	{
 		"akinsho/toggleterm.nvim",
+		lazy = "VeryLazy",
 		version = "*",
 		config = true,
 	},
 
 	{
 		"DrKJeff16/boolean-toggle.nvim",
-		cmd = { "Bool" }, -- Lazy-load by commands
+		lazy = "VeryLazy",
+		cmd = { "Bool" },
 		opts = {},
 	},
 
 	{
 		"ZhiyuanLck/smart-pairs",
+		lazy = "Lazy",
 		event = "InsertEnter",
 		config = function()
 			require("pairs"):setup()
 		end,
 	},
 
-	{ "nvim-mini/mini.jump", version = "*" },
+	{
+		"nvim-mini/mini.jump",
+		version = "*",
+		lazy = "VeryLazy",
+	},
 
 	{
 		"abecodes/tabout.nvim",
 		lazy = false,
 		config = function()
 			require("tabout").setup({
-				tabkey = "<Tab>", -- key to trigger tabout, set to an empty string to disable
-				backwards_tabkey = "<S-Tab>", -- key to trigger backwards tabout, set to an empty string to disable
-				act_as_tab = true, -- shift content if tab out is not possible
-				act_as_shift_tab = false, -- reverse shift content if tab out is not possible (if your keyboard/terminal supports <S-Tab>)
-				default_tab = "<C-t>", -- shift default action (only at the beginning of a line, otherwise <TAB> is used)
-				default_shift_tab = "<C-d>", -- reverse shift default action,
-				enable_backwards = true, -- well ...
-				completion = false, -- if the tabkey is used in a completion pum
+				tabkey = "<Tab>",
+				backwards_tabkey = "<S-Tab>",
+				act_as_tab = true,
+				act_as_shift_tab = false,
+				default_tab = "<C-t>",
+				default_shift_tab = "<C-d>",
+				enable_backwards = true,
+				completion = false,
 				tabouts = {
 					{ open = "'", close = "'" },
 					{ open = '"', close = '"' },
@@ -132,30 +139,24 @@ return {
 					{ open = "[", close = "]" },
 					{ open = "{", close = "}" },
 				},
-				ignore_beginning = true, --[[ if the cursor is at the beginning of a filled element it will rather tab out than shift the content ]]
-				exclude = {}, -- tabout will ignore these filetypes
+				ignore_beginning = true,
+				exclude = {},
 			})
 		end,
-		dependencies = { -- These are optional
+		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
 			"L3MON4D3/LuaSnip",
 			"hrsh7th/nvim-cmp",
 		},
-		opt = true, -- Set this to true if the plugin is optional
-		event = "InsertCharPre", -- Set the event to 'InsertCharPre' for better compatibility
+		opt = true,
+		event = "InsertCharPre",
 		priority = 1000,
-	},
-	{
-		"L3MON4D3/LuaSnip",
-		keys = function()
-			-- Disable default tab keybinding in LuaSnip
-			return {}
-		end,
 	},
 
 	{
 		"folke/trouble.nvim",
-		opts = {}, -- for default options, refer to the configuration section for custom setup.
+		lazy = true,
+		opts = {},
 		cmd = "Trouble",
 		keys = {
 			{
@@ -193,61 +194,33 @@ return {
 
 	{
 		"Wansmer/treesj",
+		lazy = true,
 		keys = { "<space>m", "<space>j", "<space>s" },
-		dependencies = { "nvim-treesitter/nvim-treesitter" }, -- if you install parsers with `nvim-treesitter`
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
 		config = function()
-			require("treesj").setup({--[[ your config ]]
-			})
+			require("treesj").setup({})
 		end,
 	},
 
 	{
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		branch = "main",
-		lazy = false,
+		lazy = true,
 		init = function()
-			-- Disable entire built-in ftplugin mappings to avoid conflicts.
-			-- See https://github.com/neovim/neovim/tree/master/runtime/ftplugin for built-in ftplugins.
 			vim.g.no_plugin_maps = true
-
-			-- Or, disable per filetype (add as you like)
-			-- vim.g.no_python_maps = true
-			-- vim.g.no_ruby_maps = true
-			-- vim.g.no_rust_maps = true
-			-- vim.g.no_go_maps = true
 		end,
 		config = function()
 			require("nvim-treesitter-textobjects").setup({
 				select = {
-					-- Automatically jump forward to textobj, similar to targets.vim
 					lookahead = true,
-					-- You can choose the select mode (default is charwise 'v')
-					--
-					-- Can also be a function which gets passed a table with the keys
-					-- * query_string: eg '@function.inner'
-					-- * method: eg 'v' or 'o'
-					-- and should return the mode ('v', 'V', or '<c-v>') or a table
-					-- mapping query_strings to modes.
 					selection_modes = {
-						["@parameter.outer"] = "v", -- charwise
-						["@function.outer"] = "V", -- linewise
-						-- ['@class.outer'] = '<c-v>', -- blockwise
+						["@parameter.outer"] = "v",
+						["@function.outer"] = "V",
 					},
-					-- If you set this to `true` (default is `false`) then any textobject is
-					-- extended to include preceding or succeeding whitespace. Succeeding
-					-- whitespace has priority in order to act similarly to eg the built-in
-					-- `ap`.
-					--
-					-- Can also be a function which gets passed a table with the keys
-					-- * query_string: eg '@function.inner'
-					-- * selection_mode: eg 'v'
-					-- and should return true of false
 					include_surrounding_whitespace = false,
 				},
 			})
 
-			-- keymaps
-			-- You can use the capture groups defined in `textobjects.scm`
 			vim.keymap.set({ "x", "o" }, "af", function()
 				require("nvim-treesitter-textobjects.select").select_textobject("@function.outer", "textobjects")
 			end)
@@ -260,7 +233,6 @@ return {
 			vim.keymap.set({ "x", "o" }, "ic", function()
 				require("nvim-treesitter-textobjects.select").select_textobject("@class.inner", "textobjects")
 			end)
-			-- You can also use captures from other query groups like `locals.scm`
 			vim.keymap.set({ "x", "o" }, "as", function()
 				require("nvim-treesitter-textobjects.select").select_textobject("@local.scope", "locals")
 			end)
@@ -281,17 +253,17 @@ return {
 
 	{
 		"chrisgrieser/nvim-lsp-endhints",
+		lazy = true,
 		event = "LspAttach",
-		opts = {}, -- required, even if empty
+		opts = {},
 		config = function()
-			-- default settings
 			require("lsp-endhints").setup({
 				autoEnableHints = true,
 				icons = {
 					type = "󰜁 ",
 					parameter = "󰏪 ",
-					offspec = " ", -- hint kind not defined in official LSP spec
-					unknown = " ", -- hint kind is nil
+					offspec = " ",
+					unknown = " ",
 				},
 				label = {
 					truncateAtChars = 20,
@@ -302,10 +274,6 @@ return {
 				extmark = {
 					priority = 50,
 				},
-
-				---Function that overrides how hints are displayed.
-				---expects as output a table for `virt_text` from `nvim_buf_set_extmark`,
-				---that is a table of string tuples (text & highlight group)
 
 				hintFormatFunc = nil,
 			})
@@ -319,20 +287,22 @@ return {
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-cmdline",
-			-- Snippet engine (choose one)
 			{ "L3MON4D3/LuaSnip", "saadparwaiz1/cmp_luasnip" },
-			-- Or
-			-- {'hrsh7th/cmp-vsnip', 'hrsh7th/vim-vsnip'},
 		},
 	},
 	{
 		"saghen/blink.cmp",
 		dependencies = "rafamadriz/friendly-snippets",
+		lazy = false,
 
 		version = "v0.*",
 
 		opts = {
 			keymap = { preset = "default" },
+
+			sources = {
+				default = { "lsp", "path", "snippets", "buffer" },
+			},
 
 			appearance = {
 				use_nvim_cmp_as_default = true,
@@ -345,21 +315,15 @@ return {
 					ghost_text = { enabled = true },
 				},
 			},
-			signature = { enabled = true },
+			signature = {
+				enabled = false,
+			},
 
 			completion = {
-				-- 'prefix' will fuzzy match on the text before the cursor
-				-- 'full' will fuzzy match on the text before _and_ after the cursor
-				-- example: 'foo_|_bar' will match 'foo_' for 'prefix' and 'foo__bar' for 'full'
 				keyword = { range = "full" },
-
-				-- Disable auto brackets
-				-- NOTE: some LSPs may add auto brackets themselves anyway
 				accept = { auto_brackets = { enabled = true } },
 
-				-- Don't select by default, auto insert on selection
 				list = { selection = { preselect = false, auto_insert = false } },
-				-- or set via a function
 				list = {
 					selection = {
 						preselect = function(ctx)
@@ -367,12 +331,9 @@ return {
 						end,
 					},
 				},
-
 				menu = {
-					-- Don't automatically show the completion menu
 					auto_show = false,
 
-					-- nvim-cmp style menu
 					draw = {
 						columns = {
 							{ "label", gap = 1 },
@@ -381,39 +342,31 @@ return {
 					},
 				},
 
-				-- Show documentation when selecting a completion item
-				documentation = { auto_show = false, auto_show_delay_ms = 500 },
-
-				-- Display a preview of the selected item on the current line
+				documentation = { auto_show = false },
 				ghost_text = { enabled = true },
 			},
 		},
+		opts_extend = { "source.default" },
 	},
-
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		enabled = false,
 	},
-
 	{
 		"hiphish/rainbow-delimiters.nvim",
 
-		lazy = false,
+		lazy = true,
 	},
 	{
 		"nvim-tree/nvim-tree.lua",
 		enabled = false,
 	},
+
 	{
 		"stevearc/oil.nvim",
-		---@module 'oil'
-		---@type oil.SetupOpts
 		opts = {},
-		-- Optional dependencies
 		dependencies = { { "nvim-mini/mini.icons", opts = {} } },
-		-- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
 		lazy = false,
-
 		config = function()
 			require("oil").setup()
 		end,
@@ -421,36 +374,55 @@ return {
 	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
-		opts = {
-			-- add any options here
-		},
+		opts = {},
 		dependencies = {
-			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
 			"MunifTanjim/nui.nvim",
-			-- OPTIONAL:
-			--   `nvim-notify` is only needed, if you want to use the notification view.
-			--   If not available, we use `mini` as the fallback
 			"rcarriga/nvim-notify",
 		},
 		config = function()
 			require("noice").setup({
+				cmdline = {
+					view = "cmdline",
+				},
 				lsp = {
-					-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+					progress = {
+						enabled = false,
+					},
 					override = {
 						["vim.lsp.util.convert_input_to_markdown_lines"] = true,
 						["vim.lsp.util.stylize_markdown"] = true,
-						["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+						["cmp.entry.get_documentation"] = true,
 					},
 				},
-				-- you can enable a preset for easier configuration
 				presets = {
-					bottom_search = true, -- use a classic bottom cmdline for search
-					command_palette = true, -- position the cmdline and popupmenu together
-					long_message_to_split = true, -- long messages will be sent to a split
-					inc_rename = false, -- enables an input dialog for inc-rename.nvim
-					lsp_doc_border = false, -- add a border to hover docs and signature help
+					bottom_search = true,
+					command_palette = true,
+					long_message_to_split = true,
+					inc_rename = false,
+					lsp_doc_border = false,
+				},
+				signature = {
+					enabled = false,
+				},
+				messages = {
+					enabled = false,
+				},
+				notify = {
+					enabled = false,
+					view = "notify",
 				},
 			})
 		end,
+	},
+	{
+		"rafamadriz/friendly-snippets",
+		lazy = "VeryLazy",
+	},
+	{
+		"L3MON4D3/LuaSnip",
+		lazy = "VeryLazy",
+	},
+	{
+		"NvChad/NvChad",
 	},
 }
