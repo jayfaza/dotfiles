@@ -1,7 +1,7 @@
 return {
 	{
 		"stevearc/conform.nvim",
-		-- event = 'BufWritePre', -- uncomment for format on save
+		event = "BufWritePre", -- uncomment for format on save
 		opts = require("configs.conform"),
 	},
 
@@ -38,28 +38,6 @@ return {
 		config = function()
 			require("mini.misc").setup_termbg_sync()
 		end,
-	},
-	{
-		"stevearc/overseer.nvim",
-		cmd = {
-			"OverseerRun",
-			"OverseerToggle",
-			"OverseerOpen",
-			"OverseerClose",
-		},
-		opts = {
-			strategy = {
-				"toggleterm",
-			},
-			templates = { "builtin" },
-			task_win = {
-				border = "rounded",
-			},
-		},
-		keys = {
-			{ "<leader>or", "<cmd>OverseerRun<CR>", desc = "Run task" },
-			{ "<leader>ot", "<cmd>OverseerToggle<CR>", desc = "Toggle tasks" },
-		},
 	},
 	{
 		"kevinhwang91/nvim-ufo",
@@ -100,7 +78,7 @@ return {
 		},
 		keys = {
 			{
-				"s",
+				"<C-f>",
 				mode = { "n", "x", "o" },
 				function()
 					require("flash").jump()
@@ -148,30 +126,9 @@ return {
 	},
 
 	{
-		"folke/persistence.nvim",
-		event = "BufReadPre", -- this will only start session saving when an actual file was opened
-		config = function()
-			require("persistence").setup()
-		end,
-		opts = {
-			-- add any custom options here
-		},
-	},
-
-	{
 		"DrKJeff16/boolean-toggle.nvim",
 		cmd = { "Bool" }, -- Lazy-load by commands
 		opts = {},
-	},
-
-	{
-		"smjonas/live-command.nvim",
-		main = "live-command",
-		opts = {
-			commands = {
-				Norm = { cmd = "norm" },
-			},
-		},
 	},
 
 	{
@@ -265,49 +222,6 @@ return {
 	},
 
 	{
-		"nvim-treesitter/nvim-treesitter-textobjects",
-		branch = "main",
-		init = function()
-			-- Disable entire built-in ftplugin mappings to avoid conflicts.
-			-- See https://github.com/neovim/neovim/tree/master/runtime/ftplugin for built-in ftplugins.
-			vim.g.no_plugin_maps = true
-
-			-- Or, disable per filetype (add as you like)
-			-- vim.g.no_python_maps = true
-			-- vim.g.no_ruby_maps = true
-			-- vim.g.no_rust_maps = true
-			-- vim.g.no_go_maps = true
-			--
-		end,
-		config = function()
-			require("nvim-treesitter.configs").setup({
-				textobjects = {
-					move = {
-						enable = true,
-						set_jumps = true,
-						goto_next_start = {
-							["[f"] = "@function.outer",
-							["]["] = "@class.outer",
-						},
-						goto_previous_start = {
-							["]f"] = "@function.outer",
-							["[["] = "@class.outer",
-						},
-					},
-					select = {
-						enable = true,
-						lookahead = true,
-
-						keymaps = {
-							["af"] = "@function.outer",
-							["if"] = "@function.inner",
-						},
-					},
-				},
-			})
-		end,
-	},
-	{
 		"Wansmer/treesj",
 		keys = { "<space>m", "<space>j", "<space>s" },
 		dependencies = { "nvim-treesitter/nvim-treesitter" }, -- if you install parsers with `nvim-treesitter`
@@ -316,15 +230,14 @@ return {
 			})
 		end,
 	},
+
 	{
-		"kylechui/nvim-surround",
-		version = "^4.0.0", -- Use for stability; omit to use `main` branch for the latest features
-		event = VeryLazy,
-		-- Optional: See `:h nvim-surround.configuration` and `:h nvim-surround.setup` for details
-		-- config = function()
-		--     require("nvim-surround").setup({
-		--         -- Put your configuration here
-		--     })
-		-- end
+		"nvim-mini/mini.surround",
+		version = "*",
+		opts = true,
+		lazy = false,
+		config = function()
+			require("mini.surround").setup()
+		end,
 	},
 }

@@ -44,6 +44,14 @@
 
 ## About
 A setup based on Arch linux with niri, everything is pre-installed and ready to work.
+This dotfiles has it's own manager: [`dotsmaster`]("https://github.com/jayfaza/dotsmaster.git"),
+## You can manage these dotfiles with my dotsmaster:
+   - dotsmaster --install
+   - dotsmaster --update
+   - dotsmaster --update --quiet
+   - dotsmaster --install --quiet
+
+
 
 
    
