@@ -30,42 +30,12 @@ return {
 			},
 		},
 	},
-
 	{
 		"nvim-mini/mini.misc",
 		version = true,
 		lazy = false,
 		config = function()
 			require("mini.misc").setup_termbg_sync()
-		end,
-	},
-	{
-		"kevinhwang91/nvim-ufo",
-		dependencies = {
-			"kevinhwang91/promise-async",
-		},
-		event = "BufReadPost",
-		config = function()
-			local ufo = require("ufo")
-
-			ufo.setup({
-				provider_selector = function(_, filetype, _)
-					return { "treesitter", "indent" }
-				end,
-			})
-
-			vim.o.foldcolumn = "1"
-			vim.o.foldlevel = 99
-			vim.o.foldlevelstart = 99
-			vim.o.foldenable = true
-
-			vim.keymap.set("n", "zR", ufo.openAllFolds)
-			vim.keymap.set("n", "zM", ufo.closeAllFolds)
-
-			-- peek fold (очень полезно)
-			vim.keymap.set("n", "zp", function()
-				ufo.peekFoldedLinesUnderCursor()
-			end)
 		end,
 	},
 	{
@@ -232,12 +202,255 @@ return {
 	},
 
 	{
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		branch = "main",
+		lazy = false,
+		init = function()
+			-- Disable entire built-in ftplugin mappings to avoid conflicts.
+			-- See https://github.com/neovim/neovim/tree/master/runtime/ftplugin for built-in ftplugins.
+			vim.g.no_plugin_maps = true
+
+			-- Or, disable per filetype (add as you like)
+			-- vim.g.no_python_maps = true
+			-- vim.g.no_ruby_maps = true
+			-- vim.g.no_rust_maps = true
+			-- vim.g.no_go_maps = true
+		end,
+		config = function()
+			require("nvim-treesitter-textobjects").setup({
+				select = {
+					-- Automatically jump forward to textobj, similar to targets.vim
+					lookahead = true,
+					-- You can choose the select mode (default is charwise 'v')
+					--
+					-- Can also be a function which gets passed a table with the keys
+					-- * query_string: eg '@function.inner'
+					-- * method: eg 'v' or 'o'
+					-- and should return the mode ('v', 'V', or '<c-v>') or a table
+					-- mapping query_strings to modes.
+					selection_modes = {
+						["@parameter.outer"] = "v", -- charwise
+						["@function.outer"] = "V", -- linewise
+						-- ['@class.outer'] = '<c-v>', -- blockwise
+					},
+					-- If you set this to `true` (default is `false`) then any textobject is
+					-- extended to include preceding or succeeding whitespace. Succeeding
+					-- whitespace has priority in order to act similarly to eg the built-in
+					-- `ap`.
+					--
+					-- Can also be a function which gets passed a table with the keys
+					-- * query_string: eg '@function.inner'
+					-- * selection_mode: eg 'v'
+					-- and should return true of false
+					include_surrounding_whitespace = false,
+				},
+			})
+
+			-- keymaps
+			-- You can use the capture groups defined in `textobjects.scm`
+			vim.keymap.set({ "x", "o" }, "af", function()
+				require("nvim-treesitter-textobjects.select").select_textobject("@function.outer", "textobjects")
+			end)
+			vim.keymap.set({ "x", "o" }, "if", function()
+				require("nvim-treesitter-textobjects.select").select_textobject("@function.inner", "textobjects")
+			end)
+			vim.keymap.set({ "x", "o" }, "ac", function()
+				require("nvim-treesitter-textobjects.select").select_textobject("@class.outer", "textobjects")
+			end)
+			vim.keymap.set({ "x", "o" }, "ic", function()
+				require("nvim-treesitter-textobjects.select").select_textobject("@class.inner", "textobjects")
+			end)
+			-- You can also use captures from other query groups like `locals.scm`
+			vim.keymap.set({ "x", "o" }, "as", function()
+				require("nvim-treesitter-textobjects.select").select_textobject("@local.scope", "locals")
+			end)
+		end,
+	},
+	{
 		"nvim-mini/mini.surround",
-		version = "*",
 		opts = true,
 		lazy = false,
 		config = function()
 			require("mini.surround").setup()
+		end,
+	},
+	{
+		"lewis6991/gitsigns.nvim",
+		enabled = false,
+	},
+
+	{
+		"chrisgrieser/nvim-lsp-endhints",
+		event = "LspAttach",
+		opts = {}, -- required, even if empty
+		config = function()
+			-- default settings
+			require("lsp-endhints").setup({
+				autoEnableHints = true,
+				icons = {
+					type = "󰜁 ",
+					parameter = "󰏪 ",
+					offspec = " ", -- hint kind not defined in official LSP spec
+					unknown = " ", -- hint kind is nil
+				},
+				label = {
+					truncateAtChars = 20,
+					padding = 1,
+					marginLeft = 0,
+					sameKindSeparator = ", ",
+				},
+				extmark = {
+					priority = 50,
+				},
+
+				---Function that overrides how hints are displayed.
+				---expects as output a table for `virt_text` from `nvim_buf_set_extmark`,
+				---that is a table of string tuples (text & highlight group)
+
+				hintFormatFunc = nil,
+			})
+		end,
+	},
+	{
+		"hrsh7th/nvim-cmp",
+		enabled = false,
+		dependencies = {
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-cmdline",
+			-- Snippet engine (choose one)
+			{ "L3MON4D3/LuaSnip", "saadparwaiz1/cmp_luasnip" },
+			-- Or
+			-- {'hrsh7th/cmp-vsnip', 'hrsh7th/vim-vsnip'},
+		},
+	},
+	{
+		"saghen/blink.cmp",
+		dependencies = "rafamadriz/friendly-snippets",
+
+		version = "v0.*",
+
+		opts = {
+			keymap = { preset = "default" },
+
+			appearance = {
+				use_nvim_cmp_as_default = true,
+				nerd_font_variant = "mono",
+			},
+			cmdline = {
+				keymap = { preset = "default" },
+				completion = {
+					menu = { auto_show = false },
+					ghost_text = { enabled = true },
+				},
+			},
+			signature = { enabled = true },
+
+			completion = {
+				-- 'prefix' will fuzzy match on the text before the cursor
+				-- 'full' will fuzzy match on the text before _and_ after the cursor
+				-- example: 'foo_|_bar' will match 'foo_' for 'prefix' and 'foo__bar' for 'full'
+				keyword = { range = "full" },
+
+				-- Disable auto brackets
+				-- NOTE: some LSPs may add auto brackets themselves anyway
+				accept = { auto_brackets = { enabled = true } },
+
+				-- Don't select by default, auto insert on selection
+				list = { selection = { preselect = false, auto_insert = false } },
+				-- or set via a function
+				list = {
+					selection = {
+						preselect = function(ctx)
+							return vim.bo.filetype ~= "markdown"
+						end,
+					},
+				},
+
+				menu = {
+					-- Don't automatically show the completion menu
+					auto_show = false,
+
+					-- nvim-cmp style menu
+					draw = {
+						columns = {
+							{ "label", gap = 1 },
+							{ "kind_icon" },
+						},
+					},
+				},
+
+				-- Show documentation when selecting a completion item
+				documentation = { auto_show = false, auto_show_delay_ms = 500 },
+
+				-- Display a preview of the selected item on the current line
+				ghost_text = { enabled = true },
+			},
+		},
+	},
+
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		enabled = false,
+	},
+
+	{
+		"hiphish/rainbow-delimiters.nvim",
+
+		lazy = false,
+	},
+	{
+		"nvim-tree/nvim-tree.lua",
+		enabled = false,
+	},
+	{
+		"stevearc/oil.nvim",
+		---@module 'oil'
+		---@type oil.SetupOpts
+		opts = {},
+		-- Optional dependencies
+		dependencies = { { "nvim-mini/mini.icons", opts = {} } },
+		-- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+		lazy = false,
+
+		config = function()
+			require("oil").setup()
+		end,
+	},
+	{
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		opts = {
+			-- add any options here
+		},
+		dependencies = {
+			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+			"MunifTanjim/nui.nvim",
+			-- OPTIONAL:
+			--   `nvim-notify` is only needed, if you want to use the notification view.
+			--   If not available, we use `mini` as the fallback
+			"rcarriga/nvim-notify",
+		},
+		config = function()
+			require("noice").setup({
+				lsp = {
+					-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+					override = {
+						["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+						["vim.lsp.util.stylize_markdown"] = true,
+						["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+					},
+				},
+				-- you can enable a preset for easier configuration
+				presets = {
+					bottom_search = true, -- use a classic bottom cmdline for search
+					command_palette = true, -- position the cmdline and popupmenu together
+					long_message_to_split = true, -- long messages will be sent to a split
+					inc_rename = false, -- enables an input dialog for inc-rename.nvim
+					lsp_doc_border = false, -- add a border to hover docs and signature help
+				},
+			})
 		end,
 	},
 }
