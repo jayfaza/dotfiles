@@ -13,6 +13,7 @@
   -   Disto:          [`Arch linux`](https://www.archlinux.org)
   -   Window manager: [`Niri`](https://github.com/niri-wm/niri)
   -   Dotfiles:       [`Jayfaza dotfiles`](https://github.com/jayfaza/dotfiles.git)
+  -   Manager:         [`Dotsmaster`](https://github.com/jayfaza/dotsmaster.git)
 
 ## Showcase
 
@@ -25,40 +26,24 @@
 
 ## Insallation
 
-<details><summary> <b>Installation script:</b></summary>
+<details><summary> <b>Dotfiles manager: dotsmaster</b></summary>
 
 ### requirments:
-  -  ```git python```
-  -  Installer will install other requirments, these need to run installer.
+  -  Arch linux
+  -  ```sudo pacman -S --needed base-devel```
   
 ```
-  git clone https://github.com/jayfaza/dotfiles-installer.git
-  cd dotfiles-installer.py
-  python main.py
+  cd ~/.cache
+  git clone https://github.com/jayfaza/dotsmaster.git
+  cd dotsmaster 
+  makepkg -si
+  dotsmaster --install
 ```
-
-</details>
-
-<details><summary> <b>Manual:</b></summary>
-
-### Requirements:
-  - ``` which adw-gtk-theme swaybg nvim nvim nwg-look fuzzel lsd stow npm pipewire wireplumber rustup niri kitty nautilus firefox waybar mako fish xdg-desktop-portal xdg-desktop-portal-gnome xdg-desktop-portal-gtk gnome-keyring git ```
-
-```
-  cd ~
-  git clone https://github.com/jayfaza/dotfiles.git
-  cd dotfiles
-  rm -rf ~/.config/*
-  stow .
-```
-
-(First note: There in ~/.config directory will be next folders: grub xdg tlp. If you want to, you can install them to the /etc direcotry)
-(Second note: dotfiles installer does it by default, so it is up to you.)
 
 </details>
 
 ## About
-Brutal productive setup based on Arch linux with niri, everything is pre-installed and ready to work.
+A setup based on Arch linux with niri, everything is pre-installed and ready to work.
 
 
    
