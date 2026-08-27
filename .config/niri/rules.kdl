@@ -47,3 +47,14 @@ window-rule {
   open-maximized false
 
 }
+
+window-rule {
+  match app-id="org.gnome.Nautilus"
+
+  min-width 500
+  min-height 500
+
+  open-floating true
+  open-maximized false
+  
+}

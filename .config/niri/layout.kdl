@@ -17,7 +17,7 @@ layout {
 
         width 1 
 
-        active-gradient from="#f06cd4" to="#f7047e" angle=45
+        active-gradient from="#fc3768" to="#f9a2d6" angle=45
 
         inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
     }
