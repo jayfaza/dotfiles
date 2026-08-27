@@ -1,26 +1,13 @@
 require "nvchad.mappings"
 
 -- add yours here
+
 local map = vim.keymap.set
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
-vim.keymap.set("n", "<F5>", function()
-  require("overseer").run_template({ name = "Run file" })
-end, { desc = "Run project (Overseer)" })
-
-vim.g.diagnostics_enabled = true
-
-function ToggleDiagnostics()
-    vim.g.diagnostics_enabled = not vim.g.diagnostics_enabled
-    if vim.g.diagnostics_enabled then
-        vim.diagnostic.enable(true)
-    else
-        vim.diagnostic.enable(false)
-    end
-end
-
-vim.keymap.set("n", "<C-d>", function()
-    ToggleDiagnostics()
-end, { desc = "Toggle diagnostics" })
+-- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+vim.keymap.set("n", "<C-z>", "<CMD>foldclose<CR>", { desc = "Close code fold" })
+vim.keymap.set("n", "<C-o>", "<CMD>foldopen<CR>", { desc = "Open code fold" })
