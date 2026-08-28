@@ -9,9 +9,7 @@ if status is-interactive
   alias s='firefox --search'
   alias ls='lsd'
   alias install='sudo pacman -S'
-  alias fuck="echo fuck"
-  alias hello='echo hello'
-  alias on-remote='echo onremote'
+  alias uninstall='sudo pacman -Rdd'
 
   
 
