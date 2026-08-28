@@ -10,6 +10,7 @@ if status is-interactive
   alias ls='lsd'
   alias install='sudo pacman -S'
   alias uninstall='sudo pacman -Rdd'
+  alias gay="echo gay"
 
   
 
