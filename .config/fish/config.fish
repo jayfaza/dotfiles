@@ -11,6 +11,7 @@ if status is-interactive
   alias install='sudo pacman -S'
   alias uninstall='sudo pacman -Rdd'
   alias gay="echo gay"
+  alias leptop="echo laptop"
 
   
 
