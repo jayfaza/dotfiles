@@ -11,6 +11,7 @@ if status is-interactive
   alias install='sudo pacman -S'
   alias fuck="echo fuck"
   alias hello='echo hello'
+  alias on-remote='echo onremote'
 
   
 
