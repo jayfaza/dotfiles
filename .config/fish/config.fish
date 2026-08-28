@@ -9,6 +9,7 @@ if status is-interactive
   alias s='firefox --search'
   alias ls='lsd'
   alias install='sudo pacman -S'
+  alias fuck="echo fuck"
 
   
 
