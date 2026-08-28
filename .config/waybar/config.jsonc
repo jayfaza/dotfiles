@@ -13,7 +13,6 @@
 
     "modules-right": [
         "network",
-        "niri/language",
         "pulseaudio",
         "battery"
     ],

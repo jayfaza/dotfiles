@@ -1,28 +1,28 @@
 * {
-    font-family: "FiraCode Nerd Font";
-    font-size: 14px;
-    border: none;
-    border-radius: 0;
-    min-height: 0;
+  font-family: "FiraCode Nerd Font";
+  font-size: 14px;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
 }
 
 window#waybar {
-    background: #000000;
-    color: #ffffff;
+  background: #000000;
+  color: #ffffff;
 }
 
 #workspaces button {
-    padding: 0 10px;
-    color: #777;
-    background: transparent;
+  padding: 0 10px;
+  color: #777;
+  background: transparent;
 }
 
 #workspaces button.active {
-    color: #ffffff;
+  color: #ffffff;
 }
 
 #workspaces button:hover {
-    background: #1a1a1a;
+  background: #1a1a1a;
 }
 
 #clock,
@@ -30,5 +30,5 @@ window#waybar {
 #language,
 #pulseaudio,
 #battery {
-    padding: 0 12px;
+  padding: 0 12px;
 }
