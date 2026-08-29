@@ -9,7 +9,6 @@ return {
 		build = function()
 			require("blink.cmp").build():pwait()
 		end,
-		lazy = false,
 		opts = {
 			keymap = { preset = "default" },
 			completion = {
@@ -19,6 +18,7 @@ return {
 			},
 			sources = { default = { "lsp", "path", "snippets", "buffer" } },
 			signature = { enabled = false },
+			fuzzy = { implementation = "prefer_rust" },
 		},
 	},
 }

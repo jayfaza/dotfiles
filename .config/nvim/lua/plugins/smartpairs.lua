@@ -1,7 +1,7 @@
 return {
 	{
 		"ZhiyuanLck/smart-pairs",
-		lazy = "Lazy",
+		lazy = "VeryLazy",
 		event = "InsertEnter",
 		config = function()
 			require("pairs"):setup()
