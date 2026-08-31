@@ -137,6 +137,9 @@
     },
     "launcher": {
         "dragThreshold": 50,
+        "hiddenApps": [
+            "nvim"
+        ],
         "maxShown": 5,
         "showOnHover": false,
         "useFuzzy": {
