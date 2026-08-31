@@ -17,7 +17,7 @@ return {
 				ghost_text = { enabled = true },
 			},
 			sources = { default = { "lsp", "path", "snippets", "buffer" } },
-			signature = { enabled = false },
+			signature = { enabled = true },
 			fuzzy = { implementation = "prefer_rust" },
 		},
 	},
