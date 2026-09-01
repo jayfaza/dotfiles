@@ -2,6 +2,8 @@ require("nvchad.autocmds")
 
 local autocmd = vim.api.nvim_create_autocmd
 
+vim.diagnostic.get(0, { severity = { vim.diagnostic.severity.ERROR } })
+
 autocmd("BufReadPost", {
 	pattern = "*",
 	callback = function()

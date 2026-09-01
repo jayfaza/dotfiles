@@ -6,7 +6,7 @@
 local M = {}
 
 M.base46 = {
-	theme = "vesper",
+	theme = "aylin",
 
 	hl_override = {
 		Comment = { italic = true },
@@ -25,9 +25,16 @@ M.lsp = {
 	signature = false,
 }
 
+-- M.ui = {
+-- statusline = {
+-- theme = "vscode_colored", --values| = default, vscode, vscode_colored, minimal
+-- },
+-- }
+
 M.ui = {
 	statusline = {
-		theme = "vscode_colored", --values| = default, vscode, vscode_colored, minimal
+		theme = "vscode_colored",
+		order = { "mode", "file", "git", "%=", "lsp", "cwd" },
 	},
 }
 
