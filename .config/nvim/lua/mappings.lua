@@ -6,9 +6,9 @@ local map = vim.keymap.set
 
 vim.keymap.set("n", "gK", function()
 	local float = not vim.diagnostic.config().float
-	local lines = not vim.diagnostic.config().virtual_lines
+	local text = not vim.diagnostic.config().virtual_text
 
-	vim.diagnostic.config({ float = float, virtual_lines = lines })
+	vim.diagnostic.config({ float = float, virtual_text = text })
 end)
 
 vim.keymap.set("n", "gU", function()
