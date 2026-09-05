@@ -15,16 +15,16 @@ layout {
 
     focus-ring {
 
-        width 1 
+        width 0.01
 
-        active-gradient from="#fc3768" to="#f9a2d6" angle=45
+        active-gradient from="#505050" to="#808080" angle=45
 
         inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
     }
 
 
     border {
-        width 1 
+        width 0.01
         urgent-color "#9b0000"
     }
 

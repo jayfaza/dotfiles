@@ -6,3 +6,31 @@ include "misc.kdl"
 include "layout.kdl"
 include "rules.kdl"
 include "binds.kdl"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// DMS Include Configs
+include "dms/layout.kdl"
+include "dms/cursor.kdl"
+include "dms/binds.kdl"

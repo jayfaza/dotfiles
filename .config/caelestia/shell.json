@@ -10,7 +10,7 @@
         "pitchBlack": false,
         "transparency": {
             "base": 1,
-            "enabled": true,
+            "enabled": false,
             "layers": 0.8039473684210526
         }
     },
@@ -44,6 +44,7 @@
             "autoHide": false,
             "enabled": false
         },
+        "wallpaperEnabled": false,
         "wallpaperRecolor": false,
         "wallpaperRecolorStrength": 0.4209395559210527
     },
@@ -57,42 +58,44 @@
             "showDate": true,
             "showIcon": false
         },
-        "entries": {
-            "center": [
-                {
-                    "enabled": true,
-                    "id": "activeWindow"
-                }
-            ],
-            "end": [
-                {
-                    "enabled": true,
-                    "id": "tray"
-                },
-                {
-                    "enabled": true,
-                    "id": "clock"
-                },
-                {
-                    "enabled": true,
-                    "id": "statusIcons"
-                },
-                {
-                    "enabled": true,
-                    "id": "power"
-                }
-            ],
-            "start": [
-                {
-                    "enabled": true,
-                    "id": "logo"
-                },
-                {
-                    "enabled": true,
-                    "id": "workspaces"
-                }
-            ]
-        },
+        "entries": [
+            {
+                "enabled": true,
+                "id": "logo"
+            },
+            {
+                "enabled": true,
+                "id": "workspaces"
+            },
+            {
+                "enabled": true,
+                "id": "spacer"
+            },
+            {
+                "enabled": true,
+                "id": "activeWindow"
+            },
+            {
+                "enabled": true,
+                "id": "spacer"
+            },
+            {
+                "enabled": true,
+                "id": "tray"
+            },
+            {
+                "enabled": true,
+                "id": "clock"
+            },
+            {
+                "enabled": true,
+                "id": "statusIcons"
+            },
+            {
+                "enabled": true,
+                "id": "power"
+            }
+        ],
         "github": {
             "background": false
         },
