@@ -10,4 +10,8 @@ output_path = '~/.config/fuzzel/fuzzel.ini'
 
 [templates.mako]
 input_path = '~/.config/matugen/templates/mako'
-output_path = '~/.config/mako/mako'
+output_path = '~/.config/mako/config'
+
+[templates.telegram]
+input_path = '~/.config/matugen/templates/telegram.tdesktop-theme'
+output_path = '~/.config/telegram/theme.tdesktop-theme'
