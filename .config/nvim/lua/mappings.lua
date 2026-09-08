@@ -17,6 +17,15 @@ vim.keymap.set("n", "gU", function()
 	vim.diagnostic.config({ underline = underline })
 end)
 
+vim.keymap.set("n", "gs", function()
+	local line = not vim.diagnostic.config().signs
+	vim.diagnostic.config({ signs = line })
+end)
+
+vim.keymap.set("n", "gv", function ()
+  local virtual_lines = not vim.diagnostic.config().virtual_lines
+  vim.diagnostic.config({ virtual_lines = virtual_lines })
+end)
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 

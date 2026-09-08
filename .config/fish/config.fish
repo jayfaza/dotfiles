@@ -12,6 +12,8 @@ if status is-interactive
   alias uninstall='sudo pacman -Rdd'
   alias gay="echo gay"
   alias leptop="echo laptop"
+  alias rgdb="rust-gdb"
+  alias ff='fastfetch'
 
   
 

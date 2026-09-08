@@ -1,3 +1,6 @@
+spawn-sh-at-startup "makoctl mode -a do-not-disturb"
+spawn-sh-at-startup "uniclipboard daemon start &"
 spawn-at-startup "waybar"
-spawn-at-startup "mako --config ~/.config/mako/mako"
+spawn-at-startup "mako"
 spawn-sh-at-startup "swaybg -c 030303"
+spawn-sh-at-startup "makoctl mode -r do-not-disturb"
