@@ -1,2 +1,4 @@
 spawn-sh-at-startup "uniclipboard daemon start &"
 spawn-sh-at-startup "awww-daemon &"
+spawn-at-startup "waybar"
+spawn-at-startup "mako"
