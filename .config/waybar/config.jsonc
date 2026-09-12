@@ -1,7 +1,8 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 32,
+    "height": 27, 
+    "spacing": 10,
 
     "modules-left": [
         "niri/workspaces"
@@ -12,14 +13,15 @@
     ],
 
     "modules-right": [
+        "niri/language",
         "network",
         "pulseaudio",
         "battery"
     ],
 
     "clock": {
-        "format": "{:%I:%M %p}",
-        "tooltip": false
+        "format": "{:%a, %b %e %I:%M %p}",
+        "tooltip": true 
     },
 
     "network": {
@@ -31,26 +33,27 @@
     },
 
     "niri/language": {
-        "format": "{}"
+        "format": "{short}"
     },
 
     "pulseaudio": {
-        "format": "   {volume}%",
-        "format-muted": "󰝟   Muted",
+        "format": "{volume}%",
+        "format-muted": "󰝟",
         "tooltip": false,
         "scroll-step": 1,
         "on-click": "pavucontrol"
     },
 
     "battery": {
-        "format": "  {capacity}%",
-        "format-charging": "  {capacity}%",
         "format-full": "  100%",
+        "format": "{icon} {capacity}% ",
+        "format-charging": " {icon} {capacity}%",
+        "format-icons": ["", "", "", "", ""],
         "states": {
             "good": 95,
             "warning": 25,
             "critical": 10
         },
         "tooltip": true
-    }
+    },
 }

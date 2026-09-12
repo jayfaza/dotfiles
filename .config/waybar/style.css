@@ -1,5 +1,11 @@
+@import "colors.css";
+
+@define-color bg @surface;
+@define-color text1 @primary;
+@define-color text2 @secondary;
+
 * {
-  font-family: "FiraCode Nerd Font";
+  font-family: "Iosivka Font Nerd Mono";
   font-size: 14px;
   border: none;
   border-radius: 0;
@@ -7,13 +13,13 @@
 }
 
 window#waybar {
-  background: #000000;
-  color: #ffffff;
+  background: @bg;
+  color: @primary;
 }
 
 #workspaces button {
-  padding: 0 10px;
-  color: #777;
+  padding: 0 2px;
+  color: @primary;
   background: transparent;
 }
 
@@ -22,13 +28,25 @@ window#waybar {
 }
 
 #workspaces button:hover {
-  background: #1a1a1a;
+  background: @secondary;
 }
 
-#clock,
-#network,
-#language,
-#pulseaudio,
+#clock {
+  color: @primary;
+}
+#network {
+  color: @primary;
+  margin-left: 5px;
+  margin-right: 10px;
+}
+
+#language {
+  color: @primary;
+}
+#pulseaudio {
+  color: @primary;
+}
 #battery {
+  color: @primary;
   padding: 0 12px;
 }

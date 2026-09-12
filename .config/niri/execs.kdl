@@ -1,2 +1,2 @@
 spawn-sh-at-startup "uniclipboard daemon start &"
-spawn-sh-at-startup "awww daemon"
+spawn-sh-at-startup "awww-daemon &"

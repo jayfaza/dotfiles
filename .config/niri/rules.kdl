@@ -32,7 +32,6 @@ window-rule {
 
 window-rule {
   geometry-corner-radius 0
-  opacity 0.90
   clip-to-geometry true
 }
 
@@ -48,9 +47,21 @@ window-rule {
   
 }
 
+window-rule {
+  match app-id="foot"
+
+  opacity 0.90
+}
+
 layer-rule {
   match at-startup=true
   match layer="overlay"
 
   opacity 0.90
+}
+
+layer-rule {
+  match layer="top"
+
+  opacity 0.95
 }
