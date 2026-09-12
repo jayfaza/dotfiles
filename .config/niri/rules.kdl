@@ -32,21 +32,10 @@ window-rule {
 
 window-rule {
   geometry-corner-radius 0
+  opacity 0.90
   clip-to-geometry true
 }
 
-window-rule {
-  match app-id="Happ"
-  
-  max-width 700
-  max-height 700
-  min-width 500
-  min-height 500
-
-  open-floating true
-  open-maximized false
-
-}
 
 window-rule {
   match app-id="org.gnome.Nautilus"
@@ -57,4 +46,11 @@ window-rule {
   open-floating true
   open-maximized false
   
+}
+
+layer-rule {
+  match at-startup=true
+  match layer="overlay"
+
+  opacity 0.90
 }

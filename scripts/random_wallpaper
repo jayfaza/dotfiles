@@ -1,0 +1,6 @@
+#!/usr/bin/bash
+
+wall=$(find ~/wallpapers/wallpapers/ -type f | shuf -n 1)
+awww img $wall --transition-type none 
+matugen image $wall -q --source-color-index 0
+echo $wall > ~/wallpapers/current_wallpaper

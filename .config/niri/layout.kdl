@@ -1,5 +1,5 @@
 layout {
-    gaps 16
+    gaps 30
 
     center-focused-column "never"
 
@@ -29,3 +29,37 @@ layout {
     }
 
 }
+
+animations {
+    workspace-switch {
+      off
+    }
+
+    window-open {
+      off
+    }
+
+    window-close {
+      off
+    }
+
+    horizontal-view-movement {
+      off
+    }
+
+    window-resize {
+      off
+    }
+
+    config-notification-open-close {
+      off
+    }
+
+    exit-confirmation-open-close {
+      off
+    }
+
+
+}
+
+include "colors.kdl"

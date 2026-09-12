@@ -14,6 +14,11 @@ if status is-interactive
   alias leptop="echo laptop"
   alias rgdb="rust-gdb"
   alias ff='fastfetch'
+  alias mux='pgrep -vx tmux > /dev/null && \
+        tmux new -d -s delete-me && \
+        tmux run-shell ~/.tmux/plugins/tmux-resurrect/scripts/restore.sh && \
+        tmux kill-session -t delete-me && \
+        tmux attach || tmux attach'
 
   
 

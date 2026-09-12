@@ -1,17 +1,22 @@
 [config]
 
-[templates.kitty]
-input_path = '~/.config/matugen/templates/kitty.conf'
-output_path = '~/.config/kitty/colors.conf'
-
 [templates.fuzzel]
 input_path = '~/.config/matugen/templates/fuzzel.ini'
-output_path = '~/.config/fuzzel/fuzzel.ini'
+output_path = '~/.config/fuzzel/fuzzel-colors.ini'
 
 [templates.mako]
 input_path = '~/.config/matugen/templates/mako'
-output_path = '~/.config/mako/config'
+output_path = '~/.config/mako/mako-colors'
 
 [templates.telegram]
 input_path = '~/.config/matugen/templates/telegram.tdesktop-theme'
 output_path = '~/.config/telegram/theme.tdesktop-theme'
+
+[templates.foot]
+input_path = '~/.config/matugen/templates/foot-colors.ini'
+output_path = '~/.config/foot/foot-colors.ini'
+post_hook = 'pkill -SIGUSR1 foot'
+
+[templates.niri]
+input_path = '~/.config/matugen/templates/niri-colors.kdl'
+output_path = '~/.config/niri/colors.kdl'
