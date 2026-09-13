@@ -34,7 +34,7 @@ M.lsp = {
 M.ui = {
 	statusline = {
 		theme = "vscode_colored",
-		order = { "mode", "file", "git", "%=", "lsp", "cwd" },
+		order = { "mode", "file",  "%=", "lsp", "cwd", "cursor" },
 	},
 }
 
