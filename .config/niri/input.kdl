@@ -5,14 +5,12 @@ input {
             options "grp:caps_toggle"
             model ""
             rules ""
-
         }
         repeat-rate 35
         repeat-delay 250
     }
-
     touchpad {
-        drag true 
+        drag true
         tap
         natural-scroll
         accel-speed 0
@@ -23,13 +21,11 @@ input {
         dwt
         left-handed
     }
-
     mouse {
-    }
 
+    }
     trackpoint {
         accel-speed 0
         accel-profile "flat"
     }
-
 }

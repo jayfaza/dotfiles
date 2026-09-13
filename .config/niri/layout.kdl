@@ -1,65 +1,22 @@
 layout {
     gaps 20
-
     center-focused-column "never"
-
     preset-column-widths {
         proportion 0.33333
         proportion 0.5
         proportion 0.66667
-
     }
-
-
-    default-column-width { proportion 0.5; }
-
+    default-column-width {
+        proportion 0.5
+    }
     focus-ring {
-
         width 0.01
-
         active-gradient from="#505050" to="#808080" angle=45
-
         inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
     }
-
-
     border {
         width 0.01
         urgent-color "#9b0000"
     }
-
 }
-
-animations {
-    workspace-switch {
-      off
-    }
-
-    window-open {
-      off
-    }
-
-    window-close {
-      off
-    }
-
-    horizontal-view-movement {
-      off
-    }
-
-    window-resize {
-      off
-    }
-
-    config-notification-open-close {
-      off
-    }
-
-    exit-confirmation-open-close {
-      off
-    }
-
-
-}
-
 include "colors.kdl"
