@@ -3,4 +3,5 @@
 wall=$(find ~/wallpapers/wallpapers/ -type f | shuf -n 1)
 awww img $wall --transition-type none 
 matugen image $wall -q --source-color-index 0
+wal -i $wall --saturate 0.0 -s
 echo $wall > ~/wallpapers/current_wallpaper

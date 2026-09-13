@@ -28,11 +28,11 @@ output_path = '~/.config/niri/colors.kdl'
 [templates.waybar]
 input_path = '~/.config/matugen/templates/waybar.css'
 output_path = '~/.config/waybar/colors.css'
-post_hook = 'pkill -SIGUSR2 waybar'
 
 [templates.nvim]
 input_path = '~/.config/matugen/templates/nvim-colors.lua'
 output_path = '~/.config/nvim/generated.lua'
+post_hook = 'pkill -SIGUSR1 nvim'
 
 [templates.firefox-website-colors]
 input_path = '~/.config/matugen/templates/firefox.css'
@@ -58,3 +58,7 @@ post_hook = 'bash ~/.config/matugen/post_hooks/gtk-themes-reload.sh'
 input_path = '~/.config/matugen/templates/Matugen.colors'
 output_path = '~/.local/share/color-schemes/Matugen.colors'
 
+[templates.terminal]
+input_path = '~/.config/matugen/templates/sequences'
+output_path = '~/.cache/terminal-sequences'
+post_hook = "cat ~/.cache/terminal-sequences"

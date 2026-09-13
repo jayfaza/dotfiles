@@ -6,6 +6,8 @@ if status is-interactive
 
   command -v lsd &> /dev/null && alias ls="lsd"
 
+  cat ~/.cache/terminal-sequences 2> /dev/null
+
   alias s='firefox --search'
   alias ls='lsd'
   alias install='sudo pacman -S'
@@ -32,6 +34,7 @@ if status is-interactive
   end
 
   function mark_prompt_start --on-event fish_prompt
+    cat ~/.cache/terminal-sequences 2> /dev/null
     echo -en "\e]133;A\e\\"
   end
 
